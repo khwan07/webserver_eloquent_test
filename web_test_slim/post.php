@@ -33,7 +33,7 @@ class Post extends Model {
 					PRIMARY KEY (id)
 					);";
 
-	protected function tableSetUp()
+	public function tableSetUp()
     {
         if ( !Capsule::schema()->hasTable( $this->table ) ) {
             Capsule::schema()->create( $this->table, function ( $table ) {
@@ -47,6 +47,9 @@ class Post extends Model {
                 $table->string( 'filepath' );
                 $table->int( 'filesize' );
                 $table->string( 'file_type' );
+                $table->string( 'thumb_img_path' );
+                $table->string( 'category' );
+                $table->float( 'rank' );
 
 
                 $table->softDeletes(); // Never removed, only sets a date of deletion in delete_at column
