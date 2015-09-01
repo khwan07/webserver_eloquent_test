@@ -5,7 +5,6 @@ ini_set('display_errors',1);
 error_reporting(-1);
 
 require __DIR__.'/vendor/autoload.php';
-use vender\illuminate\database\Capsule\Manager as Capsule;  
 
 
 $app = new \Slim\Slim([
@@ -14,20 +13,7 @@ $app = new \Slim\Slim([
 $app->contentType('text/html; charset=utf-8');
 
 
-$settings = array(
-'driver' => 'mysql',
-'host' => 'localhost',
-'database' => 'db_chat_member_test',
-'username' => 'root',
-'password' => '111111',
-'charset'   => 'utf8',
-'collation' => 'utf8_general_ci',
-'prefix' => ''
-);
-// Bootstrap Eloquent ORM 
-$capsule = new Capsule();
-$capsule->addConnection($settings);
-$capsule->bootEloquent();
+
 
 $app->get('/', function () {
     echo "Welcome to Slim";
